@@ -66,15 +66,18 @@ function App() {
 		) {
 			if (currentIndex < words[currentWord].length - 1) {
 				let tempIndex = currentIndex + 1;
+        let tempWords = words;
+        
 				setCurrentIndex(tempIndex);
-				setCurrentCharacter(words[currentWord][tempIndex]);
+				setCurrentCharacter(tempWords[currentWord][tempIndex]);
 			} else {
 				if (currentWord < words.length - 1) {
 					let tempIndex = 0;
 					let tempWord = currentWord + 1;
+          let tempWords = words;
 					setCurrentWord(tempWord);
 					setCurrentIndex(tempIndex);
-					setCurrentCharacter(words[tempWord][tempIndex]);
+					setCurrentCharacter(tempWords[tempWord][tempIndex]);
 					e.target.value = "";
 					setCurrentInput("");
 				} else {
@@ -82,6 +85,7 @@ function App() {
 					let tempIndex = 0;
 					let tempWord = 0;
 					let tempPassage;
+          let tempWords = words;
 
           tempPassage = Math.floor(Math.random() * passages.text.length);
 
@@ -98,7 +102,7 @@ function App() {
 							return word;
 						})
 					);
-					setCurrentCharacter(words[tempWord][tempIndex]);
+					setCurrentCharacter(tempWords[tempWord][tempIndex]);
 					e.target.value = "";
 					setCurrentInput("");
 					let tempTime = Date.now();
